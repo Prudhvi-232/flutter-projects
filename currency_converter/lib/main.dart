@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -6,7 +5,7 @@ void main() {
 }
 
 class CurrencyConverter extends StatefulWidget {
-  const CurrencyConverter({super.key});
+  const CurrencyConverter({Key? key}) : super(key: key);
 
   @override
   State<CurrencyConverter> createState() => _CurrencyConverterState();
@@ -23,6 +22,12 @@ class _CurrencyConverterState extends State<CurrencyConverter> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        primaryColor: Colors.blue, // Set the primary color
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+          secondary: Colors.orange, // This is your accent color
+        ),
+      ),
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Currency Converter'),
@@ -30,6 +35,7 @@ class _CurrencyConverterState extends State<CurrencyConverter> {
         body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               TextField(
                 controller: amountController,
